@@ -49,5 +49,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Console Output Formatter\Console Output Formatter\Console Output Formatter.csproj">
+      <Project>{310c45de-ba7c-40df-8931-3b98436f2c7f}</Project>
+      <Name>Console Output Formatter</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
