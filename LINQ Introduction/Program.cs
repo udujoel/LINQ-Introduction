@@ -18,7 +18,7 @@ namespace LINQ_Introduction
 
             foreach (var file in files)
             {
-                Console.WriteLine(file);
+                Console.WriteLine($"{file.Name} ==> {file.Length}");
             }
 
         }
