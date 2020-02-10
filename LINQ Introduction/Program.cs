@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
-using Console_Output_Formatter;
+using static Console_Output_Formatter.Formatter;
 
 namespace LINQ_Introduction
 {
@@ -12,6 +13,7 @@ namespace LINQ_Introduction
         {
             string path = @"c:\windows";
             ShowLargeFIlesWithoutLINQ(path);
+            ShowLargeFIlesWithLINQ(path);
         }
 
         private static void ShowLargeFIlesWithoutLINQ(string path)
@@ -24,8 +26,29 @@ namespace LINQ_Introduction
             {
                 var file = files[count];
                 //                Console.WriteLine($"{file.Name,20} \t\t==>\t\t {file.Length,10:N1}");
-                Formatter.ColoredMessage($"{files[count].Name,20} \t\t==>\t\t {files[count].Length,10:N1}");
+                ColoredMessage($"{files[count].Name,20} \t\t==>\t\t {files[count].Length,10:N0}");
+
+
+
+
             }
+
+            ColoredMessage("___________________");
+        }
+
+        private static void ShowLargeFIlesWithLINQ(string path)
+        {
+            var query = from Files in new DirectoryInfo(path).GetFiles()
+                        orderby Files.Length descending
+                        select Files;
+
+            foreach (var files in query.Take(5))
+            {
+                ColoredMessage($"{files.Name,20} \t\t==>\t\t {files.Length,10:N0}");
+
+            }
+
+            Console.ReadKey();
         }
 
         public class FileComparer : IComparer<FileInfo>
