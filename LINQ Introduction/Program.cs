@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 
 namespace LINQ_Introduction
@@ -15,12 +16,21 @@ namespace LINQ_Introduction
         {
             DirectoryInfo directory = new DirectoryInfo(path);
             var files = directory.GetFiles();
+            Array.Sort(files, new FileComparer());
 
             foreach (var file in files)
             {
-                Console.WriteLine($"{file.Name} ==> {file.Length}");
+                Console.WriteLine($"{file.Name} \t\t==>\t\t {file.Length}");
             }
 
+        }
+
+        public class FileComparer : IComparer<FileInfo>
+        {
+            public int Compare(FileInfo x, FileInfo y)
+            {
+                return y.Length.CompareTo(x.Length);
+            }
         }
     }
 }
