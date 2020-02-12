@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Features
 {
@@ -30,6 +31,10 @@ namespace Features
             };
 
 
+            foreach (var person in developers.Where(e => e.Name.Length > 5).OrderBy(e => e.Name))
+            {
+                Console.WriteLine($"\tID: {person.Id,2}\t Name: {person.Name,2}");
+            }
 
 
 
@@ -37,11 +42,7 @@ namespace Features
 
 
             //
-            //            foreach (var person in developers)
-            //            {
-            //                Console.WriteLine($"\tID: {person.Id,2}\t Name: {person.Name,2}");
-            //            }
-            //
+
             //            string containsDouble = "152.05";
             //            double converted = containsDouble.ToDouble();
             //
