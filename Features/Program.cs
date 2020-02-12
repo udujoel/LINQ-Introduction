@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Features
 {
@@ -8,6 +7,10 @@ namespace Features
     {
         static void Main(string[] args)
         {
+
+            Func<int, int> square = x => x * x;
+
+            Console.WriteLine(square(12));
 
             var developers = new Employee[]
             {
@@ -23,36 +26,49 @@ namespace Features
             };
 
 
-            foreach (var person in developers)
-            {
-                Console.WriteLine($"\tID: {person.Id,2}\t Name: {person.Name,2}");
-            }
 
-            string containsDouble = "152.05";
-            double converted = containsDouble.ToDouble();
 
-            Console.WriteLine(converted);
 
-            Console.WriteLine(developers.Count());
 
-            List<string> cities = new List<string>() { "Lagos", "Abuja", "Madrid", "Namibia", "Seychelles", "London", "Luisiana" };
 
-            //            IEnumerable<string> filteredList = cities.Where(startsWithLetter);
+
             //
-            //            bool startsWithLetter(string name)
+            //            foreach (var person in developers)
             //            {
-            //                return name.StartsWith("M");
+            //                Console.WriteLine($"\tID: {person.Id,2}\t Name: {person.Name,2}");
+            //            }
+            //
+            //            string containsDouble = "152.05";
+            //            double converted = containsDouble.ToDouble();
+            //
+            //            Console.WriteLine(converted);
+            //
+            //            Console.WriteLine(developers.Count());
+            //
+            //            List<string> cities = new List<string>() { "Lagos", "Abuja", "Madrid", "Namibia", "Seychelles", "London", "Luisiana" };
+            //
+            //            //            IEnumerable<string> filteredList = cities.Where(startsWithLetter);
+            //            //
+            //            //            bool startsWithLetter(string name)
+            //            //            {
+            //            //                return name.StartsWith("M");
+            //            //            }
+            //
+            //
+            //            //            IEnumerable<string> filteredList = cities.Where(delegate (string S) { return S.StartsWith("L"); });
+            //
+            //            IEnumerable<string> filteredList = cities.Where(s => s.StartsWith("L"));
+            //
+            //            foreach (var city in filteredList)
+            //            {
+            //                Console.WriteLine(city);
+            //            }
+            //
+            //            foreach (var person in developers.Where(e => e.Name.StartsWith("B")))
+            //            {
+            //                Console.WriteLine(person.Name);
             //            }
 
-
-            //            IEnumerable<string> filteredList = cities.Where(delegate (string S) { return S.StartsWith("L"); });
-
-            IEnumerable<string> filteredList = cities.Where(s => s.StartsWith("L"));
-
-            foreach (var city in filteredList)
-            {
-                Console.WriteLine(city);
-            }
         }
     }
 }
