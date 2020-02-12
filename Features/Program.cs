@@ -9,8 +9,12 @@ namespace Features
         {
 
             Func<int, int> square = x => x * x;
+            Func<double, double, double> percent = (n, m) => ((n / 100) * m);
 
-            Console.WriteLine(square(12));
+            Action<string> display = x => Console.WriteLine(x);
+
+            display($"Square 12 = {square(12)}");
+            Console.WriteLine($"10% of 50,000 = {percent(10, 50000)}");
 
             var developers = new Employee[]
             {
