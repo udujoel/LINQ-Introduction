@@ -50,10 +50,24 @@ namespace Features
             //
             //            Console.WriteLine(developers.Count());
             //
-            //            List<string> cities = new List<string>() { "Lagos", "Abuja", "Madrid", "Namibia", "Seychelles", "London", "Luisiana" };
+
+
+            List<string> cities = new List<string>() { "Lagos", "Abuja", "Madrid", "Namibia", "Seychelles", "London", "Luisiana", "Las Vagas", "Ladi" };
+
+            var filteredCities =
+                from city in cities
+                where city.StartsWith("L") && city.Length > 5
+                orderby city
+                select city;
+
+            foreach (var city in filteredCities)
+            {
+                Console.WriteLine(city);
+            }
+
+
+            //            IEnumerable<string> filteredList = cities.Where(startsWithLetter);
             //
-            //            //            IEnumerable<string> filteredList = cities.Where(startsWithLetter);
-            //            //
             //            //            bool startsWithLetter(string name)
             //            //            {
             //            //                return name.StartsWith("M");
