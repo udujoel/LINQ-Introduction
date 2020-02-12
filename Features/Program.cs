@@ -45,7 +45,9 @@ namespace Features
             //            }
 
 
-            IEnumerable<string> filteredList = cities.Where(delegate (string S) { return S.StartsWith("L"); });
+            //            IEnumerable<string> filteredList = cities.Where(delegate (string S) { return S.StartsWith("L"); });
+
+            IEnumerable<string> filteredList = cities.Where(s => s.StartsWith("L"));
 
             foreach (var city in filteredList)
             {
