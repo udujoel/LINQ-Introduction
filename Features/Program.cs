@@ -37,12 +37,15 @@ namespace Features
 
             List<string> cities = new List<string>() { "Lagos", "Abuja", "Madrid", "Namibia", "Seychelles", "London", "Luisiana" };
 
-            IEnumerable<string> filteredList = cities.Where(startsWithLetter);
+            //            IEnumerable<string> filteredList = cities.Where(startsWithLetter);
+            //
+            //            bool startsWithLetter(string name)
+            //            {
+            //                return name.StartsWith("M");
+            //            }
 
-            bool startsWithLetter(string name)
-            {
-                return name.StartsWith("M");
-            }
+
+            IEnumerable<string> filteredList = cities.Where(delegate (string S) { return S.StartsWith("L"); });
 
             foreach (var city in filteredList)
             {
