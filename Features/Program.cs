@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Features
 {
@@ -33,6 +34,20 @@ namespace Features
             Console.WriteLine(converted);
 
             Console.WriteLine(developers.Count());
+
+            List<string> cities = new List<string>() { "Lagos", "Abuja", "Madrid", "Namibia", "Seychelles", "London", "Luisiana" };
+
+            IEnumerable<string> filteredList = cities.Where(startsWithLetter);
+
+            bool startsWithLetter(string name)
+            {
+                return name.StartsWith("M");
+            }
+
+            foreach (var city in filteredList)
+            {
+                Console.WriteLine(city);
+            }
         }
     }
 }
