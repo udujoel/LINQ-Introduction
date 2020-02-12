@@ -31,10 +31,12 @@ namespace Features
             double converted = containsDouble.ToDouble();
 
             Console.WriteLine(converted);
+
+            Console.WriteLine(developers.Count());
         }
     }
 
-    public static class StringExtensions
+    public static class ExtensionMethods
     {
         /// <summary>
         /// Converts a valid string that contains a double to data of type Double
@@ -47,5 +49,18 @@ namespace Features
 
             return result;
         }
+
+        public static int Count(this IEnumerable<Employee> employees)
+        {
+            int count = 0;
+
+            foreach (var item in employees)
+            {
+                count++;
+            }
+
+            return count;
+        }
     }
+
 }
