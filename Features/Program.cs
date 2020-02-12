@@ -35,32 +35,4 @@ namespace Features
             Console.WriteLine(developers.Count());
         }
     }
-
-    public static class ExtensionMethods
-    {
-        /// <summary>
-        /// Converts a valid string that contains a double to data of type Double
-        /// </summary>
-        /// <param name="data"></param>
-        /// <returns></returns>
-        public static double ToDouble(this string data)
-        {
-            double result = double.Parse(data);
-
-            return result;
-        }
-
-        public static int Count(this IEnumerable<Employee> employees)
-        {
-            int count = 0;
-
-            foreach (var item in employees)
-            {
-                count++;
-            }
-
-            return count;
-        }
-    }
-
 }
