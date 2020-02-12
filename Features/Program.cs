@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Features
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -26,6 +26,26 @@ namespace Features
             {
                 Console.WriteLine($"\tID: {person.Id,2}\t Name: {person.Name,2}");
             }
+
+            string containsDouble = "152.05";
+            double converted = containsDouble.ToDouble();
+
+            Console.WriteLine(converted);
+        }
+    }
+
+    public static class StringExtensions
+    {
+        /// <summary>
+        /// Converts a valid string that contains a double to data of type Double
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public static double ToDouble(this string data)
+        {
+            double result = double.Parse(data);
+
+            return result;
         }
     }
 }
